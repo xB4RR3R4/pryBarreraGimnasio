@@ -28,108 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
-            cboPlan = new ComboBox();
-            lblPlan = new Label();
-            lblTurno = new Label();
-            cboTurno = new ComboBox();
-            lblMeses = new Label();
-            textBox1 = new TextBox();
+            grpPlan = new GroupBox();
             chkCasillero = new CheckBox();
+            txtMeses = new TextBox();
+            lblMeses = new Label();
+            cboTurno = new ComboBox();
+            lblTurno = new Label();
+            lblPlan = new Label();
+            cboPlan = new ComboBox();
             rbtEfectivo = new RadioButton();
             rbtTarjeta = new RadioButton();
-            comboBox1 = new ComboBox();
-            label1 = new Label();
+            cboCuotas = new ComboBox();
+            lblCuotas = new Label();
             btnCalcular = new Button();
             btnLimpiar = new Button();
-            groupBox2 = new GroupBox();
+            grpDatosPersonales = new GroupBox();
+            chkEstudiante = new CheckBox();
             txtEdad = new TextBox();
             txtNombre = new TextBox();
             lblEdad = new Label();
             lblNombre = new Label();
-            chkEstudiante = new CheckBox();
-            groupBox3 = new GroupBox();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            tabPage3 = new TabPage();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
-            tabPage3.SuspendLayout();
+            grpFormaDePago = new GroupBox();
+            tbcGimansio = new TabControl();
+            tbpDatos = new TabPage();
+            tbpPlan = new TabPage();
+            tbpPago = new TabPage();
+            grpPlan.SuspendLayout();
+            grpDatosPersonales.SuspendLayout();
+            grpFormaDePago.SuspendLayout();
+            tbcGimansio.SuspendLayout();
+            tbpDatos.SuspendLayout();
+            tbpPlan.SuspendLayout();
+            tbpPago.SuspendLayout();
             SuspendLayout();
             // 
-            // groupBox1
+            // grpPlan
             // 
-            groupBox1.Controls.Add(chkCasillero);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(lblMeses);
-            groupBox1.Controls.Add(cboTurno);
-            groupBox1.Controls.Add(lblTurno);
-            groupBox1.Controls.Add(lblPlan);
-            groupBox1.Controls.Add(cboPlan);
-            groupBox1.Location = new Point(6, 6);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(198, 160);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
-            // 
-            // cboPlan
-            // 
-            cboPlan.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboPlan.FormattingEnabled = true;
-            cboPlan.Location = new Point(79, 34);
-            cboPlan.Name = "cboPlan";
-            cboPlan.Size = new Size(100, 23);
-            cboPlan.TabIndex = 5;
-            // 
-            // lblPlan
-            // 
-            lblPlan.AutoSize = true;
-            lblPlan.Location = new Point(22, 37);
-            lblPlan.Name = "lblPlan";
-            lblPlan.Size = new Size(33, 15);
-            lblPlan.TabIndex = 6;
-            lblPlan.Text = "Plan:";
-            // 
-            // lblTurno
-            // 
-            lblTurno.AutoSize = true;
-            lblTurno.Location = new Point(22, 72);
-            lblTurno.Name = "lblTurno";
-            lblTurno.Size = new Size(42, 15);
-            lblTurno.TabIndex = 7;
-            lblTurno.Text = "Turno:";
-            // 
-            // cboTurno
-            // 
-            cboTurno.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboTurno.FormattingEnabled = true;
-            cboTurno.Location = new Point(79, 69);
-            cboTurno.Name = "cboTurno";
-            cboTurno.Size = new Size(100, 23);
-            cboTurno.TabIndex = 8;
-            // 
-            // lblMeses
-            // 
-            lblMeses.AutoSize = true;
-            lblMeses.Location = new Point(21, 106);
-            lblMeses.Name = "lblMeses";
-            lblMeses.Size = new Size(43, 15);
-            lblMeses.TabIndex = 9;
-            lblMeses.Text = "Meses:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(78, 103);
-            textBox1.MaxLength = 2;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 10;
+            grpPlan.Controls.Add(chkCasillero);
+            grpPlan.Controls.Add(txtMeses);
+            grpPlan.Controls.Add(lblMeses);
+            grpPlan.Controls.Add(cboTurno);
+            grpPlan.Controls.Add(lblTurno);
+            grpPlan.Controls.Add(lblPlan);
+            grpPlan.Controls.Add(cboPlan);
+            grpPlan.Location = new Point(6, 6);
+            grpPlan.Name = "grpPlan";
+            grpPlan.Size = new Size(198, 160);
+            grpPlan.TabIndex = 0;
+            grpPlan.TabStop = false;
+            grpPlan.Text = "Plan";
             // 
             // chkCasillero
             // 
@@ -140,6 +87,61 @@
             chkCasillero.TabIndex = 11;
             chkCasillero.Text = "Casillero ($ 3.000/mes)";
             chkCasillero.UseVisualStyleBackColor = true;
+            // 
+            // txtMeses
+            // 
+            txtMeses.Location = new Point(78, 103);
+            txtMeses.MaxLength = 2;
+            txtMeses.Name = "txtMeses";
+            txtMeses.Size = new Size(100, 23);
+            txtMeses.TabIndex = 10;
+            // 
+            // lblMeses
+            // 
+            lblMeses.AutoSize = true;
+            lblMeses.Location = new Point(21, 106);
+            lblMeses.Name = "lblMeses";
+            lblMeses.Size = new Size(43, 15);
+            lblMeses.TabIndex = 9;
+            lblMeses.Text = "Meses:";
+            // 
+            // cboTurno
+            // 
+            cboTurno.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboTurno.FormattingEnabled = true;
+            cboTurno.Items.AddRange(new object[] { "Mañana", "Tarde", "Noche" });
+            cboTurno.Location = new Point(79, 69);
+            cboTurno.Name = "cboTurno";
+            cboTurno.Size = new Size(100, 23);
+            cboTurno.TabIndex = 8;
+            // 
+            // lblTurno
+            // 
+            lblTurno.AutoSize = true;
+            lblTurno.Location = new Point(22, 72);
+            lblTurno.Name = "lblTurno";
+            lblTurno.Size = new Size(42, 15);
+            lblTurno.TabIndex = 7;
+            lblTurno.Text = "Turno:";
+            // 
+            // lblPlan
+            // 
+            lblPlan.AutoSize = true;
+            lblPlan.Location = new Point(22, 37);
+            lblPlan.Name = "lblPlan";
+            lblPlan.Size = new Size(33, 15);
+            lblPlan.TabIndex = 6;
+            lblPlan.Text = "Plan:";
+            // 
+            // cboPlan
+            // 
+            cboPlan.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboPlan.FormattingEnabled = true;
+            cboPlan.Items.AddRange(new object[] { "Musculación ", "Funcional", "Natación" });
+            cboPlan.Location = new Point(79, 34);
+            cboPlan.Name = "cboPlan";
+            cboPlan.Size = new Size(100, 23);
+            cboPlan.TabIndex = 5;
             // 
             // rbtEfectivo
             // 
@@ -163,55 +165,66 @@
             rbtTarjeta.Text = "Tarjeta";
             rbtTarjeta.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cboCuotas
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(70, 25);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(100, 23);
-            comboBox1.TabIndex = 14;
+            cboCuotas.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboCuotas.FormattingEnabled = true;
+            cboCuotas.Items.AddRange(new object[] { "1", "3", "6" });
+            cboCuotas.Location = new Point(70, 25);
+            cboCuotas.Name = "cboCuotas";
+            cboCuotas.Size = new Size(100, 23);
+            cboCuotas.TabIndex = 14;
             // 
-            // label1
+            // lblCuotas
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(13, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(47, 15);
-            label1.TabIndex = 15;
-            label1.Text = "Cuotas:";
+            lblCuotas.AutoSize = true;
+            lblCuotas.Location = new Point(13, 28);
+            lblCuotas.Name = "lblCuotas";
+            lblCuotas.Size = new Size(47, 15);
+            lblCuotas.TabIndex = 15;
+            lblCuotas.Text = "Cuotas:";
             // 
             // btnCalcular
             // 
-            btnCalcular.Location = new Point(13, 418);
+            btnCalcular.Location = new Point(11, 116);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(75, 23);
             btnCalcular.TabIndex = 16;
-            btnCalcular.Text = "Calcular";
+            btnCalcular.Text = "&Calcular";
             btnCalcular.UseVisualStyleBackColor = true;
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(139, 418);
+            btnLimpiar.Location = new Point(115, 116);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(75, 23);
             btnLimpiar.TabIndex = 17;
-            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.Text = "&Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // grpDatosPersonales
             // 
-            groupBox2.Controls.Add(chkEstudiante);
-            groupBox2.Controls.Add(txtEdad);
-            groupBox2.Controls.Add(txtNombre);
-            groupBox2.Controls.Add(lblEdad);
-            groupBox2.Controls.Add(lblNombre);
-            groupBox2.Location = new Point(6, 24);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(201, 120);
-            groupBox2.TabIndex = 1;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
+            grpDatosPersonales.Controls.Add(chkEstudiante);
+            grpDatosPersonales.Controls.Add(txtEdad);
+            grpDatosPersonales.Controls.Add(txtNombre);
+            grpDatosPersonales.Controls.Add(lblEdad);
+            grpDatosPersonales.Controls.Add(lblNombre);
+            grpDatosPersonales.Location = new Point(6, 17);
+            grpDatosPersonales.Name = "grpDatosPersonales";
+            grpDatosPersonales.Size = new Size(201, 120);
+            grpDatosPersonales.TabIndex = 1;
+            grpDatosPersonales.TabStop = false;
+            grpDatosPersonales.Text = "Datos Personales";
+            // 
+            // chkEstudiante
+            // 
+            chkEstudiante.AutoSize = true;
+            chkEstudiante.Location = new Point(11, 82);
+            chkEstudiante.Name = "chkEstudiante";
+            chkEstudiante.Size = new Size(81, 19);
+            chkEstudiante.TabIndex = 8;
+            chkEstudiante.Text = "Estudiante";
+            chkEstudiante.UseVisualStyleBackColor = true;
             // 
             // txtEdad
             // 
@@ -247,125 +260,117 @@
             lblNombre.TabIndex = 4;
             lblNombre.Text = "Nombre:";
             // 
-            // chkEstudiante
+            // grpFormaDePago
             // 
-            chkEstudiante.AutoSize = true;
-            chkEstudiante.Location = new Point(11, 82);
-            chkEstudiante.Name = "chkEstudiante";
-            chkEstudiante.Size = new Size(81, 19);
-            chkEstudiante.TabIndex = 8;
-            chkEstudiante.Text = "Estudiante";
-            chkEstudiante.UseVisualStyleBackColor = true;
+            grpFormaDePago.Controls.Add(rbtTarjeta);
+            grpFormaDePago.Controls.Add(lblCuotas);
+            grpFormaDePago.Controls.Add(rbtEfectivo);
+            grpFormaDePago.Controls.Add(cboCuotas);
+            grpFormaDePago.Location = new Point(6, 6);
+            grpFormaDePago.Name = "grpFormaDePago";
+            grpFormaDePago.Size = new Size(201, 104);
+            grpFormaDePago.TabIndex = 18;
+            grpFormaDePago.TabStop = false;
+            grpFormaDePago.Text = "Forma de Pago";
             // 
-            // groupBox3
+            // tbcGimansio
             // 
-            groupBox3.Controls.Add(rbtTarjeta);
-            groupBox3.Controls.Add(label1);
-            groupBox3.Controls.Add(rbtEfectivo);
-            groupBox3.Controls.Add(comboBox1);
-            groupBox3.Location = new Point(6, 6);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(201, 104);
-            groupBox3.TabIndex = 18;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "groupBox3";
+            tbcGimansio.Controls.Add(tbpDatos);
+            tbcGimansio.Controls.Add(tbpPlan);
+            tbcGimansio.Controls.Add(tbpPago);
+            tbcGimansio.Location = new Point(4, 3);
+            tbcGimansio.Name = "tbcGimansio";
+            tbcGimansio.SelectedIndex = 0;
+            tbcGimansio.Size = new Size(257, 238);
+            tbcGimansio.TabIndex = 0;
             // 
-            // tabControl1
+            // tbpDatos
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Controls.Add(tabPage3);
-            tabControl1.Location = new Point(13, 12);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(257, 238);
-            tabControl1.TabIndex = 19;
+            tbpDatos.Controls.Add(grpDatosPersonales);
+            tbpDatos.Location = new Point(4, 24);
+            tbpDatos.Name = "tbpDatos";
+            tbpDatos.Padding = new Padding(3);
+            tbpDatos.Size = new Size(249, 210);
+            tbpDatos.TabIndex = 0;
+            tbpDatos.Text = "Datos";
+            tbpDatos.UseVisualStyleBackColor = true;
             // 
-            // tabPage1
+            // tbpPlan
             // 
-            tabPage1.Controls.Add(groupBox1);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(249, 210);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
+            tbpPlan.Controls.Add(grpPlan);
+            tbpPlan.Location = new Point(4, 24);
+            tbpPlan.Name = "tbpPlan";
+            tbpPlan.Padding = new Padding(3);
+            tbpPlan.Size = new Size(249, 210);
+            tbpPlan.TabIndex = 1;
+            tbpPlan.Text = "Plan";
+            tbpPlan.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tbpPago
             // 
-            tabPage2.Controls.Add(groupBox2);
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(249, 210);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            tabPage3.Controls.Add(groupBox3);
-            tabPage3.Location = new Point(4, 24);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(249, 210);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "tabPage3";
-            tabPage3.UseVisualStyleBackColor = true;
+            tbpPago.Controls.Add(grpFormaDePago);
+            tbpPago.Controls.Add(btnLimpiar);
+            tbpPago.Controls.Add(btnCalcular);
+            tbpPago.Location = new Point(4, 24);
+            tbpPago.Name = "tbpPago";
+            tbpPago.Padding = new Padding(3);
+            tbpPago.Size = new Size(249, 210);
+            tbpPago.TabIndex = 2;
+            tbpPago.Text = "Pago";
+            tbpPago.UseVisualStyleBackColor = true;
             // 
             // frmInscripcion
             // 
+            AcceptButton = btnCalcular;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(tabControl1);
-            Controls.Add(btnLimpiar);
-            Controls.Add(btnCalcular);
+            ClientSize = new Size(283, 244);
+            Controls.Add(tbcGimansio);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "frmInscripcion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gimnasio Siglo — Inscripción";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage2.ResumeLayout(false);
-            tabPage3.ResumeLayout(false);
+            Load += this.frmInscripcion_Load;
+            grpPlan.ResumeLayout(false);
+            grpPlan.PerformLayout();
+            grpDatosPersonales.ResumeLayout(false);
+            grpDatosPersonales.PerformLayout();
+            grpFormaDePago.ResumeLayout(false);
+            grpFormaDePago.PerformLayout();
+            tbcGimansio.ResumeLayout(false);
+            tbpDatos.ResumeLayout(false);
+            tbpPlan.ResumeLayout(false);
+            tbpPago.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox groupBox1;
-        private TextBox textBox1;
+        private GroupBox grpPlan;
+        private TextBox txtMeses;
         private Label lblMeses;
         private ComboBox cboTurno;
         private Label lblTurno;
         private Label lblPlan;
         private ComboBox cboPlan;
-        private Label label1;
-        private ComboBox comboBox1;
+        private Label lblCuotas;
+        private ComboBox cboCuotas;
         private RadioButton rbtTarjeta;
         private RadioButton rbtEfectivo;
         private CheckBox chkCasillero;
         private Button btnLimpiar;
         private Button btnCalcular;
-        private GroupBox groupBox2;
+        private GroupBox grpDatosPersonales;
         private CheckBox chkEstudiante;
         private TextBox txtEdad;
         private TextBox txtNombre;
         private Label lblEdad;
         private Label lblNombre;
-        private GroupBox groupBox3;
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
-        private TabPage tabPage3;
+        private GroupBox grpFormaDePago;
+        private TabControl tbcGimansio;
+        private TabPage tbpDatos;
+        private TabPage tbpPlan;
+        private TabPage tbpPago;
     }
 }
