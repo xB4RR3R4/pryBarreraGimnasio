@@ -95,6 +95,7 @@
             txtMeses.Name = "txtMeses";
             txtMeses.Size = new Size(100, 23);
             txtMeses.TabIndex = 10;
+            txtMeses.KeyPress += txtMeses_KeyPress;
             // 
             // lblMeses
             // 
@@ -146,6 +147,7 @@
             // rbtEfectivo
             // 
             rbtEfectivo.AutoSize = true;
+            rbtEfectivo.Checked = true;
             rbtEfectivo.Location = new Point(13, 54);
             rbtEfectivo.Name = "rbtEfectivo";
             rbtEfectivo.Size = new Size(67, 19);
@@ -161,7 +163,6 @@
             rbtTarjeta.Name = "rbtTarjeta";
             rbtTarjeta.Size = new Size(60, 19);
             rbtTarjeta.TabIndex = 13;
-            rbtTarjeta.TabStop = true;
             rbtTarjeta.Text = "Tarjeta";
             rbtTarjeta.UseVisualStyleBackColor = true;
             // 
@@ -331,7 +332,7 @@
             Name = "frmInscripcion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gimnasio Siglo — Inscripción";
-            Load += this.frmInscripcion_Load;
+            Load += frmInscripcion_Load;
             grpPlan.ResumeLayout(false);
             grpPlan.PerformLayout();
             grpDatosPersonales.ResumeLayout(false);

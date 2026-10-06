@@ -1,6 +1,6 @@
 namespace pryBarreraGimnasio
 {
-   
+
     public partial class frmInscripcion : Form
     {
         private void EstadoInicial()
@@ -18,9 +18,32 @@ namespace pryBarreraGimnasio
             btnCalcular.Enabled = false;
             txtNombre.Focus();
         }
+
+        #region declaracion de constantes
+        public const double PLAN_NATACION = 1500;
+        public const decimal PRECIO_NATACION = 1000;
+        public const float PRECIO_CASILLERO = 500;
+
         public frmInscripcion()
         {
             InitializeComponent();
         }
+
+        private void txtMeses_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int ascii = (int)e.KeyChar;
+
+            if ((ascii < 48 || ascii > 57) && ascii != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void frmInscripcion_Load(object sender, EventArgs e)
+        {
+              EstadoInicial();
+        }
     }
+
 }
+
