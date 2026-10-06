@@ -71,7 +71,7 @@
             grpPlan.Controls.Add(lblTurno);
             grpPlan.Controls.Add(lblPlan);
             grpPlan.Controls.Add(cboPlan);
-            grpPlan.Location = new Point(6, 6);
+            grpPlan.Location = new Point(15, 6);
             grpPlan.Name = "grpPlan";
             grpPlan.Size = new Size(198, 160);
             grpPlan.TabIndex = 0;
@@ -165,6 +165,7 @@
             rbtTarjeta.TabIndex = 13;
             rbtTarjeta.Text = "Tarjeta";
             rbtTarjeta.UseVisualStyleBackColor = true;
+            rbtTarjeta.CheckedChanged += rbtTarjeta_CheckedChanged;
             // 
             // cboCuotas
             // 
@@ -187,21 +188,23 @@
             // 
             // btnCalcular
             // 
-            btnCalcular.Location = new Point(11, 116);
+            btnCalcular.Location = new Point(182, 243);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(75, 23);
             btnCalcular.TabIndex = 16;
             btnCalcular.Text = "&Calcular";
             btnCalcular.UseVisualStyleBackColor = true;
+            btnCalcular.Click += btnCalcular_Click;
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(115, 116);
+            btnLimpiar.Location = new Point(101, 243);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(75, 23);
             btnLimpiar.TabIndex = 17;
             btnLimpiar.Text = "&Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // grpDatosPersonales
             // 
@@ -210,7 +213,7 @@
             grpDatosPersonales.Controls.Add(txtNombre);
             grpDatosPersonales.Controls.Add(lblEdad);
             grpDatosPersonales.Controls.Add(lblNombre);
-            grpDatosPersonales.Location = new Point(6, 17);
+            grpDatosPersonales.Location = new Point(20, 30);
             grpDatosPersonales.Name = "grpDatosPersonales";
             grpDatosPersonales.Size = new Size(201, 120);
             grpDatosPersonales.TabIndex = 1;
@@ -267,7 +270,7 @@
             grpFormaDePago.Controls.Add(lblCuotas);
             grpFormaDePago.Controls.Add(rbtEfectivo);
             grpFormaDePago.Controls.Add(cboCuotas);
-            grpFormaDePago.Location = new Point(6, 6);
+            grpFormaDePago.Location = new Point(19, 6);
             grpFormaDePago.Name = "grpFormaDePago";
             grpFormaDePago.Size = new Size(201, 104);
             grpFormaDePago.TabIndex = 18;
@@ -310,8 +313,6 @@
             // tbpPago
             // 
             tbpPago.Controls.Add(grpFormaDePago);
-            tbpPago.Controls.Add(btnLimpiar);
-            tbpPago.Controls.Add(btnCalcular);
             tbpPago.Location = new Point(4, 24);
             tbpPago.Name = "tbpPago";
             tbpPago.Padding = new Padding(3);
@@ -325,8 +326,10 @@
             AcceptButton = btnCalcular;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(283, 244);
+            ClientSize = new Size(283, 281);
             Controls.Add(tbcGimansio);
+            Controls.Add(btnLimpiar);
+            Controls.Add(btnCalcular);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "frmInscripcion";
