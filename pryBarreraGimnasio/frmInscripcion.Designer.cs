@@ -143,6 +143,7 @@
             cboPlan.Name = "cboPlan";
             cboPlan.Size = new Size(100, 23);
             cboPlan.TabIndex = 5;
+            
             // 
             // rbtEfectivo
             // 
@@ -237,6 +238,8 @@
             txtEdad.Name = "txtEdad";
             txtEdad.Size = new Size(100, 23);
             txtEdad.TabIndex = 7;
+            txtEdad.TextChanged += txtEdad_TextChanged;
+            txtEdad.KeyPress += txtEdad_KeyPress;
             // 
             // txtNombre
             // 
@@ -245,6 +248,8 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 6;
+            txtNombre.TextChanged += txtNombre_TextChanged;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // lblEdad
             // 
