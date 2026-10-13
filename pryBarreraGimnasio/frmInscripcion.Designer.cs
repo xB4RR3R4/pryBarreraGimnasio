@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInscripcion));
             grpPlan = new GroupBox();
             chkCasillero = new CheckBox();
             txtMeses = new TextBox();
@@ -53,6 +54,9 @@
             tbpDatos = new TabPage();
             tbpPlan = new TabPage();
             tbpPago = new TabPage();
+            tbpConsultar = new TabPage();
+            ltsConsulta = new ListBox();
+            btnConsultar = new Button();
             grpPlan.SuspendLayout();
             grpDatosPersonales.SuspendLayout();
             grpFormaDePago.SuspendLayout();
@@ -60,6 +64,7 @@
             tbpDatos.SuspendLayout();
             tbpPlan.SuspendLayout();
             tbpPago.SuspendLayout();
+            tbpConsultar.SuspendLayout();
             SuspendLayout();
             // 
             // grpPlan
@@ -143,7 +148,6 @@
             cboPlan.Name = "cboPlan";
             cboPlan.Size = new Size(100, 23);
             cboPlan.TabIndex = 5;
-            
             // 
             // rbtEfectivo
             // 
@@ -287,6 +291,7 @@
             tbcGimansio.Controls.Add(tbpDatos);
             tbcGimansio.Controls.Add(tbpPlan);
             tbcGimansio.Controls.Add(tbpPago);
+            tbcGimansio.Controls.Add(tbpConsultar);
             tbcGimansio.Location = new Point(4, 3);
             tbcGimansio.Name = "tbcGimansio";
             tbcGimansio.SelectedIndex = 0;
@@ -326,16 +331,46 @@
             tbpPago.Text = "Pago";
             tbpPago.UseVisualStyleBackColor = true;
             // 
+            // tbpConsultar
+            // 
+            tbpConsultar.Controls.Add(ltsConsulta);
+            tbpConsultar.Location = new Point(4, 24);
+            tbpConsultar.Name = "tbpConsultar";
+            tbpConsultar.Size = new Size(249, 210);
+            tbpConsultar.TabIndex = 3;
+            tbpConsultar.Text = "Consultar";
+            tbpConsultar.UseVisualStyleBackColor = true;
+            // 
+            // ltsConsulta
+            // 
+            ltsConsulta.FormattingEnabled = true;
+            ltsConsulta.Location = new Point(4, 0);
+            ltsConsulta.Name = "ltsConsulta";
+            ltsConsulta.Size = new Size(242, 199);
+            ltsConsulta.TabIndex = 0;
+            // 
+            // btnConsultar
+            // 
+            btnConsultar.Location = new Point(20, 243);
+            btnConsultar.Name = "btnConsultar";
+            btnConsultar.Size = new Size(75, 23);
+            btnConsultar.TabIndex = 1;
+            btnConsultar.Text = "Consultar";
+            btnConsultar.UseVisualStyleBackColor = true;
+            btnConsultar.Click += btnConsultar_Click;
+            // 
             // frmInscripcion
             // 
             AcceptButton = btnCalcular;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(283, 281);
+            Controls.Add(btnConsultar);
             Controls.Add(tbcGimansio);
             Controls.Add(btnLimpiar);
             Controls.Add(btnCalcular);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "frmInscripcion";
             StartPosition = FormStartPosition.CenterScreen;
@@ -351,6 +386,7 @@
             tbpDatos.ResumeLayout(false);
             tbpPlan.ResumeLayout(false);
             tbpPago.ResumeLayout(false);
+            tbpConsultar.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -381,5 +417,8 @@
         private TabPage tbpDatos;
         private TabPage tbpPlan;
         private TabPage tbpPago;
+        private TabPage tbpConsultar;
+        private Button btnConsultar;
+        private ListBox ltsConsulta;
     }
 }

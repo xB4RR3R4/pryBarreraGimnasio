@@ -1,8 +1,27 @@
+using static pryBarreraGimnasio.frmInscripcion;
+
 namespace pryBarreraGimnasio
 {
 
     public partial class frmInscripcion : Form
     {
+        string[] arrayClientes = new string[3];
+        int indiceClientes = 0;
+        public struct SOCIO
+        {
+            public string nombre;
+            public int edad;
+            public int meses;
+            public decimal precioMensual;
+            public decimal subtotal;
+            public decimal porcentajeDescuento;
+            public decimal porcentajeAjuste;
+            public decimal total;
+            public decimal valorCuota;
+            
+        }
+        SOCIO sOCIO; 
+
         private void ActivarBotonCalcularFormulario()
         {
             if (txtNombre.Text != "" && txtEdad.Text != "" && txtMeses.Text != "")
@@ -38,7 +57,7 @@ namespace pryBarreraGimnasio
         public const decimal PRECIO_CASILLERO = 3000m;
         public const int EDAD_MINIMA = 18;
         public const decimal PORCENTAJE_RECARGO = 20m;
-        
+
         #endregion
 
         public frmInscripcion()
@@ -74,123 +93,114 @@ namespace pryBarreraGimnasio
                 cboCuotas.SelectedIndex = -1;
         }
 
+
+
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            #region declaracion de variables
-            string nombre = txtNombre.Text;
-            int edad = int.Parse(txtEdad.Text);
-            int meses = int.Parse(txtMeses.Text);
-            decimal precioMensual = PRECIO_NATACION;
-            decimal subtotal = 0;
-            decimal porcentajeDescuento = 0;
-            decimal porcentajeAjuste = 0;
-            decimal total = 0;
-            decimal valorCuota = 0;
-            subtotal = precioMensual * meses;
-            #endregion
+            
+            sOCIO.nombre = txtNombre.Text;
+            sOCIO.edad = int.Parse(txtEdad.Text);
+            sOCIO.meses = int.Parse(txtMeses.Text);
+            sOCIO.precioMensual = cboPlan.SelectedIndex switch
+            {
+                0 => PRECIO_NATACION,
+                1 => PRECIO_GIMNASIO,
+                2 => PRECIO_FUNCIONAL,
+                _ => 0m
+            };
+            sOCIO.subtotal = sOCIO.precioMensual * sOCIO.meses;
+
+
+
             #region calculo de precio mensual segun plan
             if (chkCasillero.Checked)
             {
-                subtotal += PRECIO_CASILLERO * meses;
+                sOCIO.subtotal += PRECIO_CASILLERO * sOCIO.meses;
             }
-            total = subtotal;
+            sOCIO.total = sOCIO.subtotal;
 
             if (rbtTarjeta.Checked && cboCuotas.SelectedIndex != -1)
             {
-                porcentajeAjuste = subtotal * (PORCENTAJE_RECARGO / 100m);
-                total += porcentajeAjuste;
+                decimal porcentajeAjuste = sOCIO.subtotal * (PORCENTAJE_RECARGO / 100m);
+                sOCIO.total += porcentajeAjuste;
             }
             if (cboCuotas.Enabled && cboCuotas.SelectedIndex != -1)
             {
                 int cuotas = int.Parse(cboCuotas.SelectedItem.ToString());
-                valorCuota = total / cuotas;
+                sOCIO.valorCuota = sOCIO.total / cuotas;
             }
             #endregion
             #region validacion edad y mes
-            if (edad < EDAD_MINIMA)
+            if (sOCIO.edad < EDAD_MINIMA)
             {
-                MessageBox.Show($"El cliente {nombre} no cumple con la edad mínima de {EDAD_MINIMA} años para inscribirse.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"El cliente {sOCIO.nombre} no cumple con la edad mínima de {EDAD_MINIMA} años para inscribirse.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 EstadoInicial();
                 return;
             }
-            if (meses >= 12)
+            if (sOCIO.meses >= 12)
             {
-                MessageBox.Show($"El cliente {nombre} no puede inscribirse por más de 12 meses.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"El cliente {sOCIO.nombre} no puede inscribirse por más de 12 meses.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 EstadoInicial();
                 return;
-            }
-            #endregion
-            #region plan seleccionado
-            string planSeleccionado = cboPlan.SelectedItem.ToString();
-            switch (planSeleccionado)
-            {
-                case "Natación":
-                    precioMensual = PRECIO_NATACION;
-                    break;
-                case "Gimnasio":
-                    precioMensual = PRECIO_GIMNASIO;
-                    break;
-                case "Funcional":
-                    precioMensual = PRECIO_FUNCIONAL;
-                    break;
-                default:
-                    MessageBox.Show("Plan inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
             }
             #endregion
             #region turno seleccionado
             string horarioSeleccionado = cboTurno.SelectedItem.ToString();
-            switch(horarioSeleccionado)
+            switch (horarioSeleccionado)
             {
-                case 0:
+                case "Mañana":
                     horarioSeleccionado = "Mañana";
                     break;
-                case 1:
+                case "Tarde":
                     horarioSeleccionado = "Tarde";
                     break;
-                case 2:
+                case "Noche":
                     horarioSeleccionado = "Noche";
                     break;
-                default:
-                    MessageBox.Show("Horario inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
+
             }
             #endregion
             #region descuento por edad y estudiante
-            if (edad < 18)
+            sOCIO.total = sOCIO.subtotal;
+            if (sOCIO.edad < 18)
             {
-                porcentajeDescuento = subtotal * 0.25m;
-                total -= porcentajeDescuento;
+                sOCIO.porcentajeDescuento = sOCIO.subtotal * 0.25m;
+                sOCIO.total -= sOCIO.porcentajeDescuento;
             }
             else
             {
-                if (edad >=65)
+                if (sOCIO.edad >= 65)
                 {
-                    porcentajeDescuento = subtotal * 0.30m;
-                    total -= porcentajeDescuento;
+                    sOCIO.porcentajeDescuento = sOCIO.subtotal * 0.30m;
+                    sOCIO.total -= sOCIO.porcentajeDescuento;
                 }
                 else
                 {
                     if (chkEstudiante.Checked)
                     {
-                        porcentajeDescuento = subtotal * 0.15m;
-                        total -= porcentajeDescuento;
+                        sOCIO.porcentajeDescuento = sOCIO.subtotal * 0.15m;
+                        sOCIO.total -= sOCIO.porcentajeDescuento;
                     }
                     else
                     {
-                        porcentajeDescuento = 0;
+                        sOCIO.porcentajeDescuento = 0;
                     }
                 }
             }
             #endregion
 
             MessageBox.Show($"Resumen de inscripcion\n" +
-                $"Cliente: {nombre}\n" +
-                $"Edad: {edad}\n" +
-                $"Meses: {meses}\n" +
-                $"Subtotal: {subtotal}\n" +
-                $"Total a pagar: {total}\n",
-                "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    $"Cliente: {sOCIO.nombre}\n" +
+                    $"Edad: {sOCIO.edad}\n" +
+                    $"Meses: {sOCIO.meses}\n" +
+                    $"Subtotal: ${sOCIO.subtotal}\n" +
+                    $"Descuento aplicado: ${sOCIO.porcentajeDescuento}\n" +
+                    $"Total a pagar: ${sOCIO.total}",
+                    "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            arrayClientes[indiceClientes] = $"Cliente: {sOCIO.nombre}, Edad: {sOCIO.edad}, Meses: {sOCIO.meses}, Subtotal: ${sOCIO.subtotal}, Descuento aplicado: ${sOCIO.porcentajeDescuento}, Total a pagar: ${sOCIO.total}";
+            indiceClientes++;
+
+            EstadoInicial();
         }
 
         private void txtEdad_KeyPress(object sender, KeyPressEventArgs e)
@@ -219,8 +229,20 @@ namespace pryBarreraGimnasio
             ActivarBotonCalcularFormulario();
         }
 
+        private void btnConsultar_Click(object sender, EventArgs e)          
+        {
+            
+            ltsConsulta.Items.Clear();
 
-
+            
+            ltsConsulta.Items.Add("Resumen de inscripción");
+            ltsConsulta.Items.Add($"Cliente: {sOCIO.nombre}");
+            ltsConsulta.Items.Add($"Edad: {sOCIO.edad}");
+            ltsConsulta.Items.Add($"Meses: {sOCIO.meses}");
+            ltsConsulta.Items.Add($"Subtotal: ${sOCIO.subtotal}");
+            ltsConsulta.Items.Add($"Descuento aplicado: ${sOCIO.porcentajeDescuento}");
+            ltsConsulta.Items.Add($"Total a pagar: ${sOCIO.total}");
+        }
     }
 }
 
