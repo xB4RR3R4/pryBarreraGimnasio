@@ -54,9 +54,9 @@
             tbpDatos = new TabPage();
             tbpPlan = new TabPage();
             tbpPago = new TabPage();
-            tbpConsultar = new TabPage();
-            ltsConsulta = new ListBox();
             btnConsultar = new Button();
+            tbpConsulta = new TabPage();
+            txtboxConsulta = new TextBox();
             grpPlan.SuspendLayout();
             grpDatosPersonales.SuspendLayout();
             grpFormaDePago.SuspendLayout();
@@ -64,7 +64,7 @@
             tbpDatos.SuspendLayout();
             tbpPlan.SuspendLayout();
             tbpPago.SuspendLayout();
-            tbpConsultar.SuspendLayout();
+            tbpConsulta.SuspendLayout();
             SuspendLayout();
             // 
             // grpPlan
@@ -291,7 +291,7 @@
             tbcGimansio.Controls.Add(tbpDatos);
             tbcGimansio.Controls.Add(tbpPlan);
             tbcGimansio.Controls.Add(tbpPago);
-            tbcGimansio.Controls.Add(tbpConsultar);
+            tbcGimansio.Controls.Add(tbpConsulta);
             tbcGimansio.Location = new Point(4, 3);
             tbcGimansio.Name = "tbcGimansio";
             tbcGimansio.SelectedIndex = 0;
@@ -331,24 +331,6 @@
             tbpPago.Text = "Pago";
             tbpPago.UseVisualStyleBackColor = true;
             // 
-            // tbpConsultar
-            // 
-            tbpConsultar.Controls.Add(ltsConsulta);
-            tbpConsultar.Location = new Point(4, 24);
-            tbpConsultar.Name = "tbpConsultar";
-            tbpConsultar.Size = new Size(249, 210);
-            tbpConsultar.TabIndex = 3;
-            tbpConsultar.Text = "Consultar";
-            tbpConsultar.UseVisualStyleBackColor = true;
-            // 
-            // ltsConsulta
-            // 
-            ltsConsulta.FormattingEnabled = true;
-            ltsConsulta.Location = new Point(4, 0);
-            ltsConsulta.Name = "ltsConsulta";
-            ltsConsulta.Size = new Size(242, 199);
-            ltsConsulta.TabIndex = 0;
-            // 
             // btnConsultar
             // 
             btnConsultar.Location = new Point(20, 243);
@@ -358,6 +340,24 @@
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = true;
             btnConsultar.Click += btnConsultar_Click;
+            // 
+            // tbpConsulta
+            // 
+            tbpConsulta.Controls.Add(txtboxConsulta);
+            tbpConsulta.Location = new Point(4, 24);
+            tbpConsulta.Name = "tbpConsulta";
+            tbpConsulta.Size = new Size(249, 210);
+            tbpConsulta.TabIndex = 3;
+            tbpConsulta.Text = "Consulta";
+            tbpConsulta.UseVisualStyleBackColor = true;
+            // 
+            // txtboxConsulta
+            // 
+            txtboxConsulta.Location = new Point(7, 7);
+            txtboxConsulta.Multiline = true;
+            txtboxConsulta.Name = "txtboxConsulta";
+            txtboxConsulta.Size = new Size(236, 196);
+            txtboxConsulta.TabIndex = 0;
             // 
             // frmInscripcion
             // 
@@ -386,7 +386,8 @@
             tbpDatos.ResumeLayout(false);
             tbpPlan.ResumeLayout(false);
             tbpPago.ResumeLayout(false);
-            tbpConsultar.ResumeLayout(false);
+            tbpConsulta.ResumeLayout(false);
+            tbpConsulta.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -417,8 +418,8 @@
         private TabPage tbpDatos;
         private TabPage tbpPlan;
         private TabPage tbpPago;
-        private TabPage tbpConsultar;
         private Button btnConsultar;
-        private ListBox ltsConsulta;
+        private TabPage tbpConsulta;
+        private TextBox txtboxConsulta;
     }
 }

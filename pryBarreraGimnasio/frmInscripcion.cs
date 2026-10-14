@@ -6,7 +6,8 @@ namespace pryBarreraGimnasio
     public partial class frmInscripcion : Form
     {
         string[] arrayClientes = new string[3];
-        int indiceClientes = 0;
+        int indiceRecorrido = 0;
+        int contadorSocios = 0;
         public struct SOCIO
         {
             public string nombre;
@@ -18,9 +19,9 @@ namespace pryBarreraGimnasio
             public decimal porcentajeAjuste;
             public decimal total;
             public decimal valorCuota;
-            
+
         }
-        SOCIO sOCIO; 
+        SOCIO sOCIO;
 
         private void ActivarBotonCalcularFormulario()
         {
@@ -84,6 +85,7 @@ namespace pryBarreraGimnasio
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             EstadoInicial();
+            txtboxConsulta.Clear();
         }
 
         private void rbtTarjeta_CheckedChanged(object sender, EventArgs e)
@@ -97,7 +99,7 @@ namespace pryBarreraGimnasio
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            
+
             sOCIO.nombre = txtNombre.Text;
             sOCIO.edad = int.Parse(txtEdad.Text);
             sOCIO.meses = int.Parse(txtMeses.Text);
@@ -197,8 +199,9 @@ namespace pryBarreraGimnasio
                     $"Descuento aplicado: ${sOCIO.porcentajeDescuento}\n" +
                     $"Total a pagar: ${sOCIO.total}",
                     "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            arrayClientes[indiceClientes] = $"Cliente: {sOCIO.nombre}, Edad: {sOCIO.edad}, Meses: {sOCIO.meses}, Subtotal: ${sOCIO.subtotal}, Descuento aplicado: ${sOCIO.porcentajeDescuento}, Total a pagar: ${sOCIO.total}";
-            indiceClientes++;
+            arrayClientes[indiceRecorrido] = $"Cliente: {sOCIO.nombre}, Edad: {sOCIO.edad}, Meses: {sOCIO.meses}, Subtotal: ${sOCIO.subtotal}, Descuento aplicado: ${sOCIO.porcentajeDescuento}, Total a pagar: ${sOCIO.total}";
+            indiceRecorrido++;
+            contadorSocios++;
 
             EstadoInicial();
         }
@@ -229,20 +232,23 @@ namespace pryBarreraGimnasio
             ActivarBotonCalcularFormulario();
         }
 
-        private void btnConsultar_Click(object sender, EventArgs e)          
-        {
-            
-            ltsConsulta.Items.Clear();
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {         
+            txtboxConsulta.Clear();
+            int indiceRecorrido = 0;
 
-            
-            ltsConsulta.Items.Add("Resumen de inscripción");
-            ltsConsulta.Items.Add($"Cliente: {sOCIO.nombre}");
-            ltsConsulta.Items.Add($"Edad: {sOCIO.edad}");
-            ltsConsulta.Items.Add($"Meses: {sOCIO.meses}");
-            ltsConsulta.Items.Add($"Subtotal: ${sOCIO.subtotal}");
-            ltsConsulta.Items.Add($"Descuento aplicado: ${sOCIO.porcentajeDescuento}");
-            ltsConsulta.Items.Add($"Total a pagar: ${sOCIO.total}");
+            while (indiceRecorrido < arrayClientes.Length)
+            {
+                if (arrayClientes[indiceRecorrido] != null)
+                {                   
+                    txtboxConsulta.Text += arrayClientes[indiceRecorrido] + "\r\n\r\n";
+                }
+                indiceRecorrido++;
+            }
+            EstadoInicial();
         }
     }
 }
+    
+
 
